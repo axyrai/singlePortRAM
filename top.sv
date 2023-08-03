@@ -1,3 +1,6 @@
+`include "ram.v"
+`include "ram_if.sv"
+`include "ram_pkg.sv"
 module top( );
   //Importing the ram package
     import ram_pkg ::*; 
@@ -31,7 +34,7 @@ module top( );
             .reset(reset)
            );
   //Instantiating the Test 
-    ram_test tb= new(intrf.DRV,intrf.MON,intrf.REF_SB);
+    ram_test tb1 = new(intrf.DRV,intrf.MON,intrf.REF_SB);
     //test1 tb1= new(intrf.DRV,intrf.MON);
     //test2 tb2= new(intrf.DRV,intrf.MON);
     //test3 tb3= new(intrf.DRV,intrf.MON);
@@ -42,7 +45,7 @@ module top( );
   initial
    begin
    // tb_regression.run();
-    tb.run();
+    tb1.run();
     $finish();
    end
 endmodule

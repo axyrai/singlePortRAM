@@ -10,7 +10,7 @@ class ram_monitor;
 
 //FUNCTIONAL COVERAGE for outputs
   covergroup mon_cg;
-    DATA_OUT: coverpoint mon_trans.data_out {bins  dout ={[0:255]};}
+    DATA_OUT: coverpoint mon_trans.data_out {bins  dout[] ={[0:255]};}
   endgroup
 
 //METHODS
