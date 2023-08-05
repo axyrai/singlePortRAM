@@ -14,9 +14,9 @@ class ram_driver;
 covergroup drv_cg;
   WRITE:   coverpoint drv_trans.write_enb { bins wrt[]={0,1};}
   READ :   coverpoint drv_trans.read_enb  { bins  rd[]={0,1};}
-  DATA_IN: coverpoint drv_trans.data_in   { bins data ={[0:255]};}
-  ADDRESS: coverpoint drv_trans.address   { bins address={[0:31]};}
-  WRXRD:   cross WRITE,READ;
+  DATA_IN: coverpoint drv_trans.data_in   { bins data[] ={[0:255]};}
+  ADDRESS: coverpoint drv_trans.address   { bins address[]={[0:31]};}
+  //WRXRD:   cross WRITE,READ;
 endgroup
  
 //METHODS
@@ -50,7 +50,7 @@ endgroup
            vif.drv_cb.address<=0;
            mbx_dr.put(drv_trans);
            repeat(1) @(vif.drv_cb);          
-           $display("DRIVER DRIVING DATA TO THE INTERFACE data_in=%d,write_enb=%d,read_enb=%d,address=%d",vif.drv_cb.data_in,vif.drv_cb.write_enb,vif.drv_cb.read_enb,vif.drv_cb.address,$time);
+           $display("DRIVER DRIVING DATA TO THE INTERFACE data_in=%0d,write_enb=%0d,read_enb=%0d,address=%0d,time=%0t",vif.drv_cb.data_in,vif.drv_cb.write_enb,vif.drv_cb.read_enb,vif.drv_cb.address,$time);
           end
         else
          repeat(1) @(vif.drv_cb)

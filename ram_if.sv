@@ -27,8 +27,8 @@ interface ram_if(input bit clk,reset);
   //Specifying the values for input and output skews
     default input #0 output #0;
   //Declaring signals without widths, but specifying the direction
-  //  input data_in,write_enb,read_enb,address,reset;
-  //  output data_out;
+    input data_in,write_enb,read_enb,address,reset;
+    output data_out;
   endclocking
 
 //modports for driver, monitor and reference model
