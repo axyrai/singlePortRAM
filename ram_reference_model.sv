@@ -35,7 +35,7 @@ class ram_reference_model;
        begin 
         if(ref_trans.write_enb)
          MEM[ref_trans.address]=ref_trans.data_in;
-        $display("REFERENCE MODEL DATA IN MEMORY MEM[ADDRESS]=%d",MEM[ref_trans.address],$time);
+	 $display("REFERENCE MODEL DATA IN MEMORY MEM[ADDRESS]=%d",MEM[ref_trans.address],$time);
         if(ref_trans.read_enb)
          ref_trans.data_out=MEM[ref_trans.address];
         $display("REFERENCE MODEL DATA OUT FROM MEMORY data_out=%d",ref_trans.data_out,$time);

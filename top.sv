@@ -22,7 +22,8 @@ module top( );
       reset=1;
     end
  
-  //Instantiating the interface
+
+ //Instantiating the interface
     ram_if intrf(clk,reset);
   //Instantiating the DUV
     RAM DUV(.data_in(intrf.data_in),
